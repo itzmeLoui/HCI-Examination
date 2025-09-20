@@ -1,11 +1,33 @@
-# HCI-Examination
+def gps_tracker():
+    # Starting position
+    x, y = 0, 0
+    print("Starting position: (0, 0)")
 
-Instructions: 
+    while True:
+        command = input("Enter direction (N/S/E/W) or STOP to end: ").strip().lower()
 
-1. Fork this repo and clone the fork onto your local computer. 
+        if command == "stop":
+            break
+        elif command in ["n", "north"]:
+            y += 1
+        elif command in ["s", "south"]:
+            y -= 1
+        elif command in ["e", "east"]:
+            x += 1
+        elif command in ["w", "west"]:
+            x -= 1
+        else:
+            print("Invalid input! Please enter N, S, E, W, or STOP.")
+            continue
 
-2. Make sure to create a local branch name examination/midterm-python-exam and accomplish the task given in that branch. 
+        print(f"Current position: ({x}, {y})")
 
-3. Modify this README.md file to explain your code. 
+    # Session ends
+    print(f"\nFinal position: ({x}, {y})")
+    if (x, y) == (0, 0):
+        print("You returned to the origin (0, 0).")
+    else:
+        print("You did NOT return to the origin.")
 
-4. Push the activity back to your forked remote repo.
+# Run the GPS tracker
+gps_tracker()
